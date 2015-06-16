@@ -26,5 +26,8 @@
         <module name="site_piority" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="site_piority" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
