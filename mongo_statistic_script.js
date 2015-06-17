@@ -26,3 +26,17 @@ db.analizeMap.count({"errors": /client response code: 404/, "extractedUsedLinks"
 
 # tota count of sites 
 db.analizeMap.find()
+
+#site haven't sitemap but have ..
+db.analizeMap.count({
+    $and: [
+    {"errors": /client response code: 404/}, 
+    {$or: [
+        {"extractedUsedLinks": {$not: {$elemMatch: {"elements": /href/}}}},
+        {"extractedNewLinks":  {$not:{$elemMatch: {"elements": /href/}}}}
+        ]
+     }
+    
+  ]})
+
+
